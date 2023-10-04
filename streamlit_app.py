@@ -10,9 +10,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Download NLTK data if not already downloaded
-# nltk.download("punkt")
-# nltk.download("stopwords")
-# nltk.download("wordnet")
+nltk.download("punkt")
+nltk.download("stopwords")
+nltk.download("wordnet")
 
 helping_verbs = ["how", "why", "is", "are", "was", "were", "will", "can", "could", "should", "would", "different", "types"]
 words_to_ignore = helping_verbs + stopwords.words("english")
