@@ -1,0 +1,6 @@
+# pdfplumber
+nltk
+numpy
+scikit-learn
+PyMuPDF
+streamlit
