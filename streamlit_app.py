@@ -14,8 +14,9 @@ nltk.download("punkt")
 nltk.download("stopwords")
 nltk.download("wordnet")
 
-helping_verbs = ["how", "why", "is", "are", "was", "were", "will", "can", "could", "should", "would", "different", "types"]
+helping_verbs = ["how", "why", "is", "are", "was", "were", "will", "can", "could", "should", "would", "different", "types", "difference", "similarity", "common" ,"similar"] 
 words_to_ignore = helping_verbs + stopwords.words("english")
+
 
 
 def extract_and_process_text(pdf_path):
@@ -62,7 +63,7 @@ def answer_question_with_context(user_question, tfidf_vectorizer, tfidf_matrix, 
     similarity_scores = cosine_similarity(user_question_vector, tfidf_matrix)
     max_similarity_index = np.argmax(similarity_scores)
     if similarity_scores[0][max_similarity_index] == 0:
-        return None
+        return 
     context_sentence = sentences[max_similarity_index]
     context_words = word_tokenize(context_sentence)
     context_index = context_words.index(user_question.split()[0])
