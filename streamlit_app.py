@@ -137,14 +137,20 @@ def main():
 
             main_answer = ""
             user_question_words = user_input.split()
+            normie = ['hi', 'hey', 'hello' 'halo']
             for word in user_question_words:
-                context = answer_question_with_context(word, tfidf_vectorizer, tfidf_matrix, sentences, word_limit)
-                if context:
-                    formatted_context = format_conversation_response(context)
-                    if main_answer != formatted_context:
-                        main_answer += "\n" + formatted_context + ". "
+                if word.lower() in normie:
+                    main_answer = "Hello World"
+                else:    
+                    context = answer_question_with_context(word, tfidf_vectorizer, tfidf_matrix, sentences, word_limit)
+                    if context:
+                        formatted_context = format_conversation_response(context)
+                        if main_answer != formatted_context:
+                            main_answer += "\n" + formatted_context + ". "
             if main_answer:
                 st.write("Bot:", main_answer)
+            else :
+                st.write("Bot:", "Sorry couldn't find anything related throughout PDF")
 
             question_counter += 1
 
